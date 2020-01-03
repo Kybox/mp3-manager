@@ -4,11 +4,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mpatric.mp3agic.*;
 import fr.kybox.entity.Mp3Data;
 import fr.kybox.service.Mp3Service;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 
+@Slf4j
 @Service
 public class Mp3ServiceImpl implements Mp3Service {
 
@@ -19,7 +22,7 @@ public class Mp3ServiceImpl implements Mp3Service {
     }
 
     public Mp3File load() throws InvalidDataException, IOException, UnsupportedTagException {
-        return new Mp3File("src/main/resources/assets/Comp7.mp3");
+        return new Mp3File(new File(this.getClass().getResource("/assets/Comp7.mp3").getPath()).getPath());
     }
 
     @Override
@@ -73,6 +76,7 @@ public class Mp3ServiceImpl implements Mp3Service {
         mp3Tags.setUrl("https://kybox.fr");
         if(file != null)
             mp3Tags.setAlbumImage(file.getBytes(), "Cover");
-        mp3File.save("./src/main/resources/assets/Comp7-updated.mp3");
+
+        mp3File.save("./Comp7-updated.mp3");
     }
 }
