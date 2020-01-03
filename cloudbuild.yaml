@@ -2,7 +2,7 @@ steps:
 # DOCKER BUILD & PUSH
 - name: maven:3.6.2-jdk-11-slim
   entrypoint: mvn
-  args: [-DskipTests, -Dproject=$PROJECT_ID, -Dimageg=$_IMAGE, compile, jib:build]
+  args: [-DskipTests, -Dproject=$PROJECT_ID, -Dimage=$_IMAGE, compile, jib:build]
 # CLOUD RUN DEPLOYMENT
 - name: gcr.io/cloud-builders/gcloud
   args: [beta, run, deploy, $_SERVICE_NAME, --image, gcr.io/$PROJECT_ID/$_IMAGE, --region, $_REGION, --project, $PROJECT_ID, --platform, managed, --allow-unauthenticated, --concurrency, default, --memory, $_MEMORY]
