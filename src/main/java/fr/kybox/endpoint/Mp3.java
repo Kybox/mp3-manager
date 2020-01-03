@@ -44,7 +44,7 @@ public class Mp3 {
 
     @GetMapping(value = "/mp3")
     public void mp3(HttpServletResponse response) throws IOException {
-        Path path = Path.of("assets/Comp7.mp3");
+        Path path = Path.of("src/main/resources/assets/Comp7.mp3");
         response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
         response.setContentLength((int) Files.size(path));
         Files.copy(path, response.getOutputStream());
@@ -53,7 +53,7 @@ public class Mp3 {
 
     @GetMapping(value = "/genre")
     public void getGenreList(HttpServletResponse response) throws IOException {
-        Path path = Path.of("assets/genre.txt");
+        Path path = Path.of("src/main/resources/assets/genre.txt");
         response.setContentType(MediaType.TEXT_PLAIN_VALUE);
         response.setContentLength((int) Files.size(path));
         Files.copy(path, response.getOutputStream());
@@ -74,7 +74,7 @@ public class Mp3 {
     @GetMapping("/download")
     public void download(HttpServletResponse response) {
         try {
-            Path path = Path.of("assets/Comp7-updated.mp3");
+            Path path = Path.of("src/main/resources/assets/Comp7-updated.mp3");
             response.setContentType(MediaType.ALL_VALUE);
             response.setContentLength((int) Files.size(path));
             response.setHeader("Content-disposition", "attachment; filename=Kybox-MP3-Manager-demo.mp3");

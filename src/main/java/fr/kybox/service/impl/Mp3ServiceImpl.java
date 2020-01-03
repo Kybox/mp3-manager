@@ -19,7 +19,7 @@ public class Mp3ServiceImpl implements Mp3Service {
     }
 
     public Mp3File load() throws InvalidDataException, IOException, UnsupportedTagException {
-        return new Mp3File("assets/Comp7.mp3");
+        return new Mp3File("src/main/resources/assets/Comp7.mp3");
     }
 
     @Override
@@ -73,6 +73,6 @@ public class Mp3ServiceImpl implements Mp3Service {
         mp3Tags.setUrl("https://kybox.fr");
         if(file != null)
             mp3Tags.setAlbumImage(file.getBytes(), "Cover");
-        mp3File.save("./assets/Comp7-updated.mp3");
+        mp3File.save("./src/main/resources/assets/Comp7-updated.mp3");
     }
 }
