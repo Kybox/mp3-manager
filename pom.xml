@@ -76,6 +76,7 @@
                     <to>
                         <!--suppress UnresolvedMavenProperty -->
                         <image>gcr.io/${project}/${image}</image>
+                        <credHelper>gcr</credHelper>
                     </to>
                 </configuration>
                 <executions>
