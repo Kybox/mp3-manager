@@ -16,6 +16,7 @@
 
     <properties>
         <java.version>11</java.version>
+        <jib.version>1.8.0</jib.version>
         <mp3agic.version>0.9.1</mp3agic.version>
     </properties>
 
@@ -71,16 +72,16 @@
             <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
-                <version>1.7.0</version>
+                <version>${jib.version}</version>
                 <configuration>
                     <to>
                         <!--suppress UnresolvedMavenProperty -->
-                        <image>gcr.io/${project}/${image}</image>
+                        <image>gcr.io/${project}/${img}</image>
                         <auth>
                             <!--suppress UnresolvedMavenProperty -->
                             <username>_json_key</username>
                             <!--suppress UnresolvedMavenProperty -->
-                            <password>${registry_key}</password>
+                            <password>${push_key}</password>
                         </auth>
                     </to>
                 </configuration>

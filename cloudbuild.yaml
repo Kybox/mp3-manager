@@ -1,8 +1,0 @@
-steps:
-# DOCKER BUILD & PUSH
-- name: gcr.io/cloud-builders/mvn
-  #entrypoint: mvn
-  args: [-DskipTests, -Dproject=$PROJECT_ID, -Dimage=$_IMAGE, -Dregistry_key=$_REGISTRY_KEY, clean, compile, jib:build]
-# CLOUD RUN DEPLOYMENT
-- name: gcr.io/cloud-builders/gcloud
-  args: [beta, run, deploy, $_SERVICE_NAME, --image, gcr.io/$PROJECT_ID/$_IMAGE, --region, $_REGION, --project, $PROJECT_ID, --platform, managed, --allow-unauthenticated, --concurrency, default, --memory, $_MEMORY]
