@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MP3 Manager</title>
+    <script type="text/javascript" src="webjars/jquery/3.0.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="webjars/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="text-center">
+    <div class="p-4">
+        <h4>MP3 Manager demo</h4>
+        <p>Transférez une image, modifiez les tags et téléchargez le fichier MP3 afin de constater vos modification dans votre lecteur audio.</p>
+        <em>Note : De nombreux autres tags sont éditables (<a href="https://fr.wikipedia.org/wiki/ID3_(m%C3%A9tadonn%C3%A9es_MP3)">voir la normalisation ID3</a>)</em>
+    </div>
+    <div class="d-flex justify-content-around">
+        <div class="alert alert-light">
+            <div class="d-flex border border-info">
+                <div class="d-flex flex-column text-center">
+                    <div id="cover" class="p-4">
+                        <img src="/loadCover" width="200" height="200" alt="image">
+                    </div>
+                    <em>1 Mo max au format JPG</em>
+                    <input type="file" aria-label="upload"
+                           accept="image/jpeg" value="Upload"
+                           class="btn btn-info text-center m-2"
+                           onchange="readImg(this)" id="image">
+                    <div class="alert alert-danger m-4" id="error"></div>
+                </div>
+                <div class="bg-light flex-grow-1 p-4">
+                    <table>
+                        <caption></caption>
+                        <tr>
+                            <th id="label_list"></th>
+                            <th id="input_list"></th>
+                        </tr>
+                        <tr>
+                            <td class="text-right pr-1">Album : </td>
+                            <td><input class="form-control" id="album" aria-label="album"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right pr-1">Track : </td>
+                            <td><input class="form-control" id="track" aria-label="track"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right pr-1">Artist : </td>
+                            <td><input class="form-control" id="artist" aria-label="artist"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right pr-1">Title : </td>
+                            <td><input class="form-control" id="title" aria-label="title"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right pr-1">Composer : </td>
+                            <td><input class="form-control" id="composer" aria-label="composer"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right pr-1">Year : </td>
+                            <td><input class="form-control" id="year" aria-label="year"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right pr-1">Genre : </td>
+                            <td>
+                                <select id="genre" aria-label="genre" class="form-control">
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <button type="button" class="btn btn-info m-4" id="download">Télécharger</button>
+                </div>
+            </div>
+            <div class="border border-top-0 border-info p-4">
+                <audio controls id="player">
+                    <source src="/mp3" type="audio/mp3" />
+                </audio>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
