@@ -18,6 +18,7 @@
         <java.version>11</java.version>
         <jib.version>1.8.0</jib.version>
         <mp3agic.version>0.9.1</mp3agic.version>
+        <modelmapper.version>2.3.6</modelmapper.version>
     </properties>
 
     <dependencies>
@@ -32,6 +33,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>${modelmapper.version}</version>
         </dependency>
         <dependency>
             <groupId>com.mpatric</groupId>
