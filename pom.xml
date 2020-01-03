@@ -76,6 +76,12 @@
                     <to>
                         <!--suppress UnresolvedMavenProperty -->
                         <image>gcr.io/${project}/${image}</image>
+                        <auth>
+                            <!--suppress UnresolvedMavenProperty -->
+                            <username>_json_key</username>
+                            <!--suppress UnresolvedMavenProperty -->
+                            <password>${registry_key}</password>
+                        </auth>
                     </to>
                 </configuration>
                 <executions>
